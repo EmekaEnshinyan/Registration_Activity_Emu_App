@@ -11,4 +11,6 @@
     7. agree checkbox
     8. pick image
   [Representation]
-    1. a single interface that allows for input of all data
+    a single interface that allows for input of all data. Need teviews for name email and password. Imageview for profile picture. Buttons (radio, checkbox, dropdown) for
+    selecting gender (radio), country (dropdown), agree to terms (checkbox), register (simple button)
+   
