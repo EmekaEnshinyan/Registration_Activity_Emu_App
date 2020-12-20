@@ -1,1 +1,14 @@
-Requirements
+--Project--
+  [Domain Analysis]
+    a registration layout that requires user to provide specific information in order to successfully register
+  [Data Required]
+    1. name
+    2. email
+    3. password
+    4. re-enter password
+    5. gender
+    6. country
+    7. agree checkbox
+    8. pick image
+  [Representation]
+    1. a single interface that allows for input of all data
