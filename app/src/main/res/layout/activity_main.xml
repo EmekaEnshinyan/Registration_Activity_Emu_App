@@ -93,22 +93,6 @@
             android:layout_below="@+id/txtPasswordReenter"
             android:layout_marginTop="20dp"/>
 
-        <TextView
-            android:layout_width="78dp"
-            android:layout_height="49dp"
-            android:text="Select Country"
-            android:layout_toLeftOf="@+id/spinnerCountry"
-            />
-
-        <Spinner
-            android:id="@+id/spinnerCountry"
-            android:layout_width="78dp"
-            android:layout_height="49dp"
-            android:layout_below="@+id/radioOther"
-            android:layout_marginTop="2dp"
-            android:contextClickable="true"
-            android:layout_marginLeft="90dp"
-            android:spinnerMode="dropdown" />
 
         <Button
             android:id="@+id/button"
