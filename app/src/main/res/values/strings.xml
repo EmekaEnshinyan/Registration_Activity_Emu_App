@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner">
+        <item>Armenia</item>
+        <item>Australia</item>
+        <item>Azerbaijan</item>
+        <item>Brazil</item>
+        <item>Babylon</item>
+        <item>Croatia</item>
+        <item>Nigeria</item>
+        <item>Turkey</item>
+        <item>United States</item>
+        <item>UwU</item>
+    </string-array>
+</resources>

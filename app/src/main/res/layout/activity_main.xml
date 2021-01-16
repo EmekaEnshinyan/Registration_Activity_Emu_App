@@ -1,115 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="15dp"
     tools:context=".MainActivity"
     android:id="@+id/parent">
 
-
         <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="161dp"
+            android:layout_height="165dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.045"
+            app:srcCompat="@drawable/andimeka" />
+
+        <Button
+            android:id="@+id/btnImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="80dp"
-            android:src="@mipmap/andiemeka"
-            android:id="@+id/image"
-            />
+            android:text="Select Image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.146" />
 
-        <TextView
+
+        <EditText
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/image"
-            android:layout_marginTop="20dp"
-            android:width="200dp"
-            android:text="Full Name" />
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.298"
+            tools:visibility="visible" />
 
-        <TextView
+        <EditText
+            android:id="@+id/txtEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtName"
-            android:layout_marginTop="20dp"
-            android:width="200dp"
-            android:text="Email"
-            android:id="@+id/txtEmail"/>
+            android:layout_marginBottom="396dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintVertical_bias="0.666" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <EditText
             android:id="@+id/txtPassword"
-            android:layout_below="@+id/txtEmail"
-            android:layout_marginTop="20dp"
-            android:width="200dp"
-            android:text="Enter Password"/>
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtPassword"
-            android:layout_marginTop="20dp"
-            android:width="200dp"
+            android:layout_marginBottom="336dp"
+            android:ems="10"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
             android:id="@+id/txtPasswordReenter"
-            android:text="Re-Enter Password"/>
-
-        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/txtPassword"
-            android:layout_marginTop="250dp"
-            android:layout_marginLeft="76dp"
-            android:id="@+id/chkButton"/>
+            android:layout_marginBottom="264dp"
+            android:ems="10"
+            android:hint="Re-enter Password"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="330dp">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Female" />
+
+                <RadioButton
+                    android:id="@+id/rbOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Other" />
+        </RadioGroup>
 
         <TextView
+            android:id="@+id/textGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/chkButton"
-            android:layout_marginLeft="240dp"
-            android:text="I agree to the terms and agreements of all policies as required by this app"    />
+            android:text="Select Gender"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.018"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733" />
 
-        <RadioButton
+        <TextView
+            android:id="@+id/txtCountries"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/radioMale"
-            android:layout_below="@+id/txtPasswordReenter"
-            android:layout_marginTop="20dp"
-            android:text="Male"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/radioMale"
-            android:id="@+id/radioFemale"
-            android:layout_below="@+id/txtPasswordReenter"
-            android:text="Female"
-            android:layout_marginTop="20dp"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/radioFemale"
-            android:id="@+id/radioOther"
-            android:text="Other"
-            android:layout_below="@+id/txtPasswordReenter"
-            android:layout_marginTop="20dp"/>
+            android:text="Select Country"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.811" />
 
+        <Spinner
+            android:id="@+id/spinnerCountries"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="156dp"
+            android:layout_marginRight="156dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.087"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.817" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="110dp"
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/radioOther"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="140dp"
-            android:layout_marginLeft="140dp"
-            android:layout_marginTop="99dp"
-            android:layout_marginEnd="148dp"
-            android:layout_marginRight="148dp"
-            android:layout_marginBottom="111dp"
-            android:text="Register" />
+            android:text="Register"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.918" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="By Checking Agree, you agree to the terms of privacy "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.906"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.331" />
+
+        <CheckBox
+            android:id="@+id/chkAgree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:checked="true"
+            android:text="I Agree"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.449" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
