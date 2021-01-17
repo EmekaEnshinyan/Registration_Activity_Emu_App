@@ -1,4 +1,4 @@
-package com.example.registerui;
+package com.example.android_layout_register_exercise;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
