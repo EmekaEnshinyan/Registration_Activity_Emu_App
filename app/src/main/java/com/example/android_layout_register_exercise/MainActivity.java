@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,11 +16,13 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android_layout_register_exercise.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     private EditText txtName, txtEmail, txtPassword, txtPasswordReenter;
     private RadioGroup rgGender;
     private RadioButton rbMale, rbFemale, rbOther;
@@ -36,6 +39,37 @@ public class MainActivity extends AppCompatActivity {
 
 
         initViews();
+
+        btnImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "image button", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "register button", Toast.LENGTH_SHORT).show();
+                initRegister();
+            }
+
+            private void initRegister() {
+                Log.d(TAG, "initRegister Started:");
+
+                if (validateData()){
+
+                }
+            }
+            private boolean validateData(){
+                Log.d(TAG, "initRegister");
+                if (txtName.getText().toString().equals("")){
+                    Toast.makeText(MainActivity.this, "fill out entire form", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
+            }
+        });
 
 
 
