@@ -3,6 +3,7 @@ package com.example.android_layout_register_exercise;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.DialogInterface;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android_layout_register_exercise.R;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox chkAgree;
     private Button btnRegister, btnImage;
     private Spinner spinnerC;
+    private TextView txtNameWarn, txtEmailWarn, txtPasswordWarn, txtPasswordReenterWarn;
     private ConstraintLayout parent;
 
 
@@ -58,16 +61,53 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "initRegister Started:");
 
                 if (validateData()){
-
+                    if (chkAgree.isChecked()){
+                        showSnackBar();
+                    }else Toast.makeText(MainActivity.this, "Please agree to the terms", Toast.LENGTH_SHORT).show();
                 }
+            }
+            private void showSnackBar(){
+                Log.d(TAG, "showSnackBar: Started");
+                txtNameWarn.setVisibility(View.GONE);
+                txtEmailWarn.setVisibility(View.GONE);
+                txtPasswordWarn.setVisibility(View.GONE);
+                txtPasswordReenterWarn.setVisibility(View.GONE);
+                Snackbar.make(parent, "User Registered", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Dismiss", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                        }
+                    }).show();
             }
             private boolean validateData(){
                 Log.d(TAG, "initRegister");
                 if (txtName.getText().toString().equals("")){
-                    Toast.makeText(MainActivity.this, "fill out entire form", Toast.LENGTH_SHORT).show();
+                    txtNameWarn.setVisibility(View.VISIBLE);
+                    txtNameWarn.setText("Enter your name");
                     return false;
                 }
-
+                if (txtEmail.getText().toString().equals("")){
+                    txtEmailWarn.setVisibility(View.VISIBLE);
+                    txtEmailWarn.setText("Please enter your email");
+                    return false;
+                }
+                if (txtPassword.getText().toString().equals("")){
+                    txtPasswordWarn.setVisibility(View.VISIBLE);
+                    txtPasswordWarn.setText("please enter your password");
+                    return false;
+                }
+                if (txtPasswordReenter.getText().toString().equals("")){
+                    txtPasswordReenterWarn.setVisibility(View.VISIBLE);
+                    txtPasswordReenterWarn.setText("Please reenter your password");
+                    return false;
+                }
+                if (txtPassword.getText() != txtPasswordReenter.getText()){
+                    txtPasswordReenterWarn.setVisibility(View.VISIBLE);
+                    txtPasswordReenterWarn.setText("Make sure both passwords match");
+                    return false;
+                }
+                return true;
             }
         });
 
