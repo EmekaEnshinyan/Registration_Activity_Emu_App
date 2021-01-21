@@ -62,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
     //checks if user has entered all the relevant data
     private void initRegister() {
         Log.d(TAG, "initRegister Started:");
-
         if (validateData()) {
             if (chkAgree.isChecked()) {
-                //showSnackBar();
-            } else
-                Toast.makeText(MainActivity.this, "Please agree to the terms", Toast.LENGTH_SHORT).show();
+                showSnackBar();
+            }
+        } else{
+            Toast.makeText(MainActivity.this, "Please agree to the terms", Toast.LENGTH_SHORT).show();
         }
     }
     //shows snackBar
@@ -106,11 +106,6 @@ public class MainActivity extends AppCompatActivity {
         if (txtPasswordReenter.getText().toString().equals("")) {
             txtPasswordReenterWarn.setVisibility(View.VISIBLE);
             txtPasswordReenterWarn.setText("Please reenter your password");
-            return false;
-        }
-        if (txtPassword.getText() != txtPasswordReenter.getText()) {
-            txtPasswordReenterWarn.setVisibility(View.VISIBLE);
-            txtPasswordReenterWarn.setText("Make sure both passwords match");
             return false;
         }
         return true;
