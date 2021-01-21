@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinner">
+    <string-array name="spinnerCountries">
         <item>Armenia</item>
         <item>Australia</item>
         <item>Azerbaijan</item>

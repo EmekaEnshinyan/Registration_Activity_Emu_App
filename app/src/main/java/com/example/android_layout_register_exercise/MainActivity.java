@@ -63,13 +63,10 @@ public class MainActivity extends AppCompatActivity {
     private void initRegister() {
         Log.d(TAG, "initRegister Started:");
         if (validateData()) {
-            if (chkAgree.isChecked()) {
-                showSnackBar();
-            }
-        } else{
-            Toast.makeText(MainActivity.this, "Please agree to the terms", Toast.LENGTH_SHORT).show();
+            showSnackBar();
         }
     }
+
     //shows snackBar
     private void showSnackBar(){
                 Log.d(TAG, "showSnackBar: Started");
@@ -90,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "initRegister");
         if (txtName.getText().toString().equals("")) {
             txtNameWarn.setVisibility(View.VISIBLE);
-            txtNameWarn.setText("Enter your name");
+            txtNameWarn.setText("Please Enter your name");
             return false;
         }
         if (txtEmail.getText().toString().equals("")) {
@@ -108,9 +105,17 @@ public class MainActivity extends AppCompatActivity {
             txtPasswordReenterWarn.setText("Please reenter your password");
             return false;
         }
+        if (chkAgree.isChecked() == false){
+            Toast.makeText(MainActivity.this, "Please agree to the terms", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (txtPassword.getText().toString().equals(txtPasswordReenter.getText().toString()) == false) {
+            Toast.makeText(this, "MAKE SURE THE PASSWORDS MATCH!", Toast.LENGTH_LONG).show();
+            return false;
+        }
         return true;
     }
-        //all vies set to be initialized
+        //all views set to be initialized including setting spinner adapter
         private void initViews () {
             Log.d(TAG, "initViews: Started");
             txtName = findViewById(R.id.txtName);
@@ -126,7 +131,19 @@ public class MainActivity extends AppCompatActivity {
             btnImage = findViewById(R.id.btnImage);
             btnRegister = findViewById(R.id.btnRegister);
 
+            txtNameWarn = findViewById(R.id.txtNameWarn);
+            txtEmailWarn = findViewById(R.id.txtEmailWarn);
+            txtPasswordWarn = findViewById(R.id.txtPasswordWarn);
+            txtPasswordReenterWarn = findViewById(R.id.txtPasswordReenterWarn);
+
             spinnerCountries = findViewById(R.id.spinnerCountries);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                    R.array.spinnerCountries, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+            spinnerCountries.setAdapter(adapter);
+            parent = findViewById(R.id.parent);
 
             parent = findViewById(R.id.parent);
 
